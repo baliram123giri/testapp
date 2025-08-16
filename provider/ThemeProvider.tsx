@@ -12,6 +12,7 @@ import {
 import React from "react";
 import { MD3LightTheme as DefaultTheme, Provider as PaperProvider } from "react-native-paper";
 import { ThemeProp } from "react-native-paper/lib/typescript/types";
+import ContextProvider from "./ContextProvider";
 
 
 // ✅ Extend Paper theme with Manrope
@@ -47,7 +48,7 @@ export default function ThemeProvider({ children }: { children: React.ReactNode 
 
     return (
         <PaperProvider theme={theme}>
-            {children}
+            <ContextProvider>{children}</ContextProvider>
         </PaperProvider>
     );
 }

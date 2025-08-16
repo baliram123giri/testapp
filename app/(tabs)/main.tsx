@@ -11,7 +11,7 @@ export default function Main() {
     const onPressHandler = useCallback(() => { push("/(tabs)/create_task") }, [])
 
     return (
-        <SafeAreaView style={{ flex: 1 }}>
+        <SafeAreaView style={{ flex: 1 }} className='bg-white'>
             <View style={{ paddingBottom: HP("4%"), paddingLeft: WP("3%"), paddingRight: WP("3%") }}>
                 <View className="text-center flex justify-center content-center w-full mb-5">
                     <Text variant="headlineMedium" className="font-semibold mx-auto">TaskMaster</Text>
