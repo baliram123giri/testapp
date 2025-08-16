@@ -11,11 +11,16 @@ import {
 } from "@expo-google-fonts/manrope";
 import React from "react";
 import { MD3LightTheme as DefaultTheme, Provider as PaperProvider } from "react-native-paper";
+import { ThemeProp } from "react-native-paper/lib/typescript/types";
 
 
 // ✅ Extend Paper theme with Manrope
-export const theme = {
+export const theme: ThemeProp = {
     ...DefaultTheme,
+    colors: {
+        primary: "#3b82f6",
+        onPrimary: "#FFFFFF"
+    },
     fonts: {
         ...DefaultTheme.fonts,
         bodyLarge: { ...DefaultTheme.fonts.bodyLarge, fontFamily: "ManropeRegular" },
