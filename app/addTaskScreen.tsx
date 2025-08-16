@@ -1,4 +1,5 @@
 import CustomCalendar from "@/components/CustomCalendar";
+import CustomCam from "@/components/CustomCam";
 import { taskContext } from "@/provider/ContextProvider";
 import { TaskList } from "@/utils/app.types";
 import { MaterialIcons } from "@expo/vector-icons";
@@ -90,7 +91,7 @@ export default function AddTaskScreen() {
                     </TouchableOpacity>
                 ))}
             </View>
-
+            <CustomCam onChange={(value: string) => setValues({ ...values, image: value })} />
             {/* Submit Button */}
             <TouchableOpacity onPress={onTaskHandler} className="bg-[#3d99f5] rounded-xl py-4">
                 <Text className="text-center text-white text-lg font-semibold">Add Task</Text>

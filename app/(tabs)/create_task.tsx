@@ -6,7 +6,7 @@ import { HP, WP } from '@/utils/utils'
 import { MaterialIcons } from '@expo/vector-icons'
 import { useRouter } from 'expo-router'
 import React, { useCallback, useContext } from 'react'
-import { ScrollView, TouchableOpacity, View } from 'react-native'
+import { Image, ScrollView, TouchableOpacity, View } from 'react-native'
 import { Card, IconButton, List, Text } from 'react-native-paper'
 import { SafeAreaView } from 'react-native-safe-area-context'
 
@@ -14,9 +14,7 @@ export default function CreateTask() {
     const { push } = useRouter()
     const onPressHandler = useCallback(() => { push("/addTaskScreen") }, [])
     const { setSelectedDate, taskList } = useContext(taskContext)
-    const [expanded, setExpanded] = React.useState(true);
 
-    const handlePress = () => setExpanded(!expanded);
 
     return (
         <View style={{ flex: 1 }} className="bg-white">
@@ -48,7 +46,11 @@ export default function CreateTask() {
                                     key={value.description}
                                     title={value.title}
                                     left={props => <List.Icon {...props} icon="folder" />}>
-                                    <List.Item title={value.description} />
+                                    <List.Item title={value.description} description={<Image source={{ uri: value.image }} style={{
+                                        width: 200,
+                                        height: 200,
+                                    }} />} />
+
                                 </List.Accordion>
                             ))}
                         </List.Section>

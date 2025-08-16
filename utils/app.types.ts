@@ -3,4 +3,5 @@ export type TaskList = {
     description: string,
     dueDate: string
     priority: string
+    image?: string
 }
