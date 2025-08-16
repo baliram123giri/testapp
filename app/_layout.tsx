@@ -6,8 +6,9 @@ export default function Layout() {
   return (
     <ThemeProvider>
       <SafeAreaProvider>
-        <Stack>
+        <Stack screenOptions={{ headerShown: false }}>
           <Stack.Screen name="index" options={{ title: "Home", headerShown: false }} />
+          <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
         </Stack>
       </SafeAreaProvider>
     </ThemeProvider>

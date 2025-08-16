@@ -18,7 +18,7 @@ import { ThemeProp } from "react-native-paper/lib/typescript/types";
 export const theme: ThemeProp = {
     ...DefaultTheme,
     colors: {
-        primary: "#3b82f6",
+        primary: "#3d99f5",
         onPrimary: "#FFFFFF"
     },
     fonts: {
