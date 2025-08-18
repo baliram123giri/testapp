@@ -20,7 +20,7 @@ export const theme: ThemeProp = {
     ...DefaultTheme,
     colors: {
         ...DefaultTheme.colors,
-        primary: "#3d99f5",
+        primary: "#349eea",
         onPrimary: "#FFFFFF"
     },
     fonts: {

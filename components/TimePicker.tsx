@@ -1,5 +1,4 @@
 import { theme } from "@/provider/ThemeProvider";
-import { formatDate } from "@/utils/utils";
 import { Ionicons } from "@expo/vector-icons";
 import DateTimePicker, { DateTimePickerEvent } from "@react-native-community/datetimepicker";
 import React, { useState } from "react";
@@ -7,33 +6,44 @@ import { Platform, Pressable, Text, View } from "react-native";
 
 type Props = {
     label?: string;
-    onDateChange?: (date: Date) => void;
+    onTimeChange?: (time: Date) => void;
+    is24Hour?: boolean;
 };
 
-export default function DatePicker({ label, onDateChange }: Props) {
-    const [date, setDate] = useState(new Date()); // defaults to today
+export default function TimePicker({ label, onTimeChange, is24Hour = false }: Props) {
+    const [time, setTime] = useState(new Date()); // defaults to now
     const [show, setShow] = useState(false);
 
     const onChange = (event: DateTimePickerEvent, selectedDate?: Date) => {
         setShow(false);
         if (selectedDate) {
-            setDate(selectedDate);
-            onDateChange?.(selectedDate);
+            setTime(selectedDate);
+            onTimeChange?.(selectedDate);
         }
     };
+
+    const formattedTime = new Intl.DateTimeFormat("en-US", {
+        hour: "2-digit",
+        minute: "2-digit",
+        hour12: !is24Hour,
+    }).format(time);
 
     return (
         <View>
             {label && <Text className="mb-2 font-bold text-lg">{label}</Text>}
-            <Pressable onPress={() => setShow(true)} className="flex-row justify-between items-center bg-white border-slate-50  border shadow-sm rounded-xl px-4 py-3 mt-2 mb-4">
-                <Text >{formatDate(date)}</Text>
-                <Ionicons name="calendar-outline" size={20} color={theme.colors?.primary} />
+            <Pressable
+                onPress={() => setShow(true)}
+                className="flex-row justify-between items-center gap-1 rounded-xl px-4 py-2"
+            >
+                <Text>{formattedTime}</Text>
+                <Ionicons name="time-outline" size={20} color={theme.colors?.primary} />
             </Pressable>
 
             {show && (
                 <DateTimePicker
-                    value={date}
-                    mode="date"
+                    value={time}
+                    mode="time"
+                    is24Hour={is24Hour}
                     display={Platform.OS === "ios" ? "spinner" : "default"}
                     onChange={onChange}
                 />

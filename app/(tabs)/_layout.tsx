@@ -1,3 +1,4 @@
+import { theme } from "@/provider/ThemeProvider";
 import { Ionicons } from "@expo/vector-icons";
 import { router, Tabs } from "expo-router";
 import { Pressable, View } from "react-native";
@@ -29,7 +30,7 @@ function CustomTabBar({ state, navigation }: any) {
                 <Ionicons
                     name="home-outline"
                     size={26}
-                    color={state.index === 0 ? "#2563eb" : "#000"}
+                    color={state.index === 0 ? theme.colors?.primary : "#000"}
                 />
             </Pressable>
 
@@ -38,14 +39,15 @@ function CustomTabBar({ state, navigation }: any) {
                 <Ionicons
                     name="calendar-outline"
                     size={26}
-                    color={state.index === 2 ? "#2563eb" : "#000"}
+                    color={state.index === 2 ? theme.colors?.primary : "#000"}
                 />
             </Pressable>
 
             {/* Floating Add Button */}
             <Pressable
+                style={{ backgroundColor: theme.colors?.primary }}
                 onPress={() => navigation.navigate("create_task")}
-                className="bg-blue-600 p-4 rounded-full -mt-14 shadow-lg"
+                className="p-4 rounded-full -mt-14 shadow-lg"
             >
                 <Ionicons name="add" size={28} color="#fff" />
             </Pressable>
@@ -64,7 +66,7 @@ function CustomTabBar({ state, navigation }: any) {
                 <Ionicons
                     name="person-outline"
                     size={26}
-                    color={state.index === 1 ? "#2563eb" : "#000"}
+                    color={state.index === 1 ? theme.colors?.primary : "#000"}
                 />
             </Pressable>
         </View>

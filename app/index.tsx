@@ -138,7 +138,7 @@ const GoTaskWelcomeScreen = () => {
             {/* Welcome text */}
             {/* Text */}
             <View className="mb-10">
-              <Text style={{fontSize:HP("4%")}} className="text-2xl font-bold text-center text-white mb-3">
+              <Text style={{ fontSize: HP("4%") }} className="text-2xl font-bold text-center text-white mb-3">
                 Welcome to Go Task
               </Text>
               <Text className="text-base text-white text-center">
@@ -147,8 +147,6 @@ const GoTaskWelcomeScreen = () => {
               </Text>
             </View>
           </View>
-
-
 
           {/* Action button */}
           {/* Button */}

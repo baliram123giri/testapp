@@ -1,22 +1,11 @@
+import ProgressBar from "@/components/ProgressBar";
+import { theme } from "@/provider/ThemeProvider";
 import { Ionicons } from "@expo/vector-icons";
-import { Image, Pressable, ScrollView, Text, View } from "react-native";
-import { SafeAreaView } from "react-native-safe-area-context";
+import { Image, ScrollView, Text, View } from "react-native";
 
 export default function TaskDetailsScreen() {
     return (
         <ScrollView className="flex-1 bg-white px-5 pt-10">
-            {/* Header */}
-            <SafeAreaView>
-                <View className="flex-row items-center mb-5">
-                    <Pressable>
-                        <Ionicons name="chevron-back" size={24} color="#000" />
-                    </Pressable>
-                    <Text className="flex-1 text-center text-lg font-semibold text-black">
-                        Task Details
-                    </Text>
-                </View>
-            </SafeAreaView>
-
             {/* Task Title */}
             <Text className="text-xl font-bold text-black mb-3">
                 Web Development
@@ -24,8 +13,8 @@ export default function TaskDetailsScreen() {
 
             {/* Date & Time */}
             <View className="flex-row items-center mb-5">
-                <View className="bg-blue-100 p-2 rounded-full mr-3">
-                    <Ionicons name="calendar-outline" size={20} color="#2563eb" />
+                <View className="bg-blue-100 h-10 w-10 flex justify-center flex-row items-center p-2 rounded-full mr-3">
+                    <Ionicons name="calendar-outline" size={20} color={theme.colors?.primary} />
                 </View>
                 <Text className="text-gray-600 text-base">
                     04 April, at 11:30 AM
@@ -34,13 +23,16 @@ export default function TaskDetailsScreen() {
 
             {/* Progress */}
             <View className="mb-6">
-                <View className="flex-row justify-between mb-2">
-                    <Text className="text-gray-700 font-medium">In Progress</Text>
-                    <Text className="text-gray-700 font-medium">60%</Text>
+                <View className="flex justify-between mb-2">
+                    <View className="flex-row justify-between items-center">    <Text className="text-black font-semibold">In Progress</Text>
+                        {/* Percentage text (optional) */}
+                        <Text style={{ marginTop: 6, textAlign: "right", fontWeight: "500" }}>
+                            {60}%
+                        </Text></View>
+                    <ProgressBar progress={60} />
+
                 </View>
-                <View className="h-2 bg-gray-200 rounded-full">
-                    <View className="h-2 bg-blue-600 rounded-full w-[60%]" />
-                </View>
+
             </View>
 
             {/* Overview */}

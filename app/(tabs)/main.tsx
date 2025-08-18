@@ -1,3 +1,4 @@
+import { theme } from "@/provider/ThemeProvider";
 import { Ionicons } from "@expo/vector-icons";
 import { LinearGradient } from "expo-linear-gradient";
 import { router } from "expo-router";
@@ -51,7 +52,7 @@ export default function HomeScreen() {
                     className="bg-blue-600 mx-5 p-5 shadow-lg"
                     start={{ x: 0.85, y: 0.15 }}
                     end={{ x: 0.15, y: 0.85 }}
-                    style={{ flex: 1, borderRadius:10 }}
+                    style={{ flex: 1, borderRadius: 10 }}
                 >
                     <View >
                         <Text className="text-white text-lg font-semibold">
@@ -88,7 +89,7 @@ export default function HomeScreen() {
                 {/* Task Section */}
                 <View className="flex-row justify-between items-center mx-5 mt-6">
                     <Text className="text-lg font-bold">Today’s Task</Text>
-                    <Text className="text-blue-600 font-medium">See All</Text>
+                    <Text style={{ color: theme.colors?.primary }} className="font-medium">See All</Text>
                 </View>
 
                 {/* Task List */}
