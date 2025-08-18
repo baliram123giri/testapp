@@ -19,6 +19,7 @@ import ContextProvider from "./ContextProvider";
 export const theme: ThemeProp = {
     ...DefaultTheme,
     colors: {
+        ...DefaultTheme.colors,
         primary: "#3d99f5",
         onPrimary: "#FFFFFF"
     },
